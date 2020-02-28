@@ -20,7 +20,7 @@ type TblItemModel struct {
 var db *gorm.DB
 
 func main() {
-	populateDB();
+	populateDB()
 
 	e := echo.New()
 	e.GET("/", getData)
@@ -55,7 +55,7 @@ func populateDB() {
 	db.AutoMigrate(&TblItemModel{})
 
 	// Parse Data
-	values, _, _, err := jsonparser.Get(resp.Body(), "result");
+	values, _, _, err := jsonparser.Get(resp.Body(), "result")
 	var items []string
 	_ = json.Unmarshal([]byte(values), &items)
 	
