@@ -17,6 +17,22 @@ type TblItemModel struct {
 	Name string `gorm:"size:255"`
 }
 
+type TblItemModel struct {
+	station_locator_url
+	total_results
+	station_counts
+	fuel_stations
+}
+
+type TotalModel struct {
+	total int 
+}
+
+type StationCountsModel struct {
+	total
+	fuels
+}
+
 var db *gorm.DB
 
 func main() {
@@ -83,5 +99,5 @@ func getData(c echo.Context) error {
 		dist = append(dist, string(item.Name))
 	}
 
-	return c.JSONPretty(http.StatusCreated, dist, "  ")
+	return c.JSONPretty(http.StatusOK, dist, "  ")
 }
