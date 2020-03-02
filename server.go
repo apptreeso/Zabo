@@ -36,6 +36,7 @@ func populateDB() {
 	// Pull
 	resp, err := client.R().
 		Get("https://demo.ckan.org/api/3/action/package_list")
+		//https://developer.nrel.gov/api/alt-fuel-stations/v1.json?limit=1&api_key=UFtSv13cjRgZYDpq9tXZet9bz7YGbEhIE0RKkXsp
 
 	if resp.StatusCode() != http.StatusOK {
 		fmt.Println(err)
